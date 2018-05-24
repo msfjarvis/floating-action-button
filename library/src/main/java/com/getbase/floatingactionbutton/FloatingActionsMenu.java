@@ -60,6 +60,7 @@ public class FloatingActionsMenu extends ViewGroup {
     private int mButtonsCount;
     private TouchDelegateGroup mTouchDelegateGroup;
     private OnFloatingActionsMenuUpdateListener mListener;
+    private Rect touchArea = new Rect(0, 0, 0, 0);
 
     public FloatingActionsMenu(Context context) {
         this(context, null);
@@ -304,8 +305,7 @@ public class FloatingActionsMenu extends ViewGroup {
 
                         label.layout(labelLeft, labelTop, labelRight, labelTop + label.getMeasuredHeight());
 
-                        Rect touchArea = new Rect(
-                                Math.min(childX, labelLeft),
+                        touchArea.set(Math.min(childX, labelLeft),
                                 childY - mButtonSpacing / 2,
                                 Math.max(childX + child.getMeasuredWidth(), labelRight),
                                 childY + child.getMeasuredHeight() + mButtonSpacing / 2);
