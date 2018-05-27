@@ -1,4 +1,4 @@
-package com.getbase.floatingactionbutton;
+package me.msfjarvis.floatingactionbutton;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

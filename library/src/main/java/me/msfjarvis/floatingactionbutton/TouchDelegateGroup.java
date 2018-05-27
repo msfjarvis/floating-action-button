@@ -1,4 +1,4 @@
-package com.getbase.floatingactionbutton;
+package me.msfjarvis.floatingactionbutton;
 
 import android.graphics.Rect;
 import android.support.annotation.NonNull;

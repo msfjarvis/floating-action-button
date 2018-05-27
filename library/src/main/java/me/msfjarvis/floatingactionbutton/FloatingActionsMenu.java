@@ -1,4 +1,4 @@
-package com.getbase.floatingactionbutton;
+package me.msfjarvis.floatingactionbutton;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
