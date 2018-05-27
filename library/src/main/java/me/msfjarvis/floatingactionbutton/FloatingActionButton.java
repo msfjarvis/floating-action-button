@@ -1,6 +1,5 @@
 package me.msfjarvis.floatingactionbutton;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.*;
@@ -9,8 +8,6 @@ import android.graphics.Shader.TileMode;
 import android.graphics.drawable.*;
 import android.graphics.drawable.ShapeDrawable.ShaderFactory;
 import android.graphics.drawable.shapes.OvalShape;
-import android.os.Build;
-import android.os.Build.VERSION_CODES;
 import android.support.annotation.*;
 import android.util.AttributeSet;
 import android.widget.ImageButton;
@@ -235,7 +232,7 @@ public class FloatingActionButton extends ImageButton {
                 circleInsetHorizontal + iconOffset,
                 circleInsetBottom + iconOffset);
 
-        setBackgroundCompat(layerDrawable);
+        setBackground(layerDrawable);
     }
 
     Drawable getIconDrawable() {
@@ -368,16 +365,6 @@ public class FloatingActionButton extends ImageButton {
         });
 
         return shapeDrawable;
-    }
-
-    @SuppressWarnings("deprecation")
-    @SuppressLint("NewApi")
-    private void setBackgroundCompat(Drawable drawable) {
-        if (Build.VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN) {
-            setBackground(drawable);
-        } else {
-            setBackgroundDrawable(drawable);
-        }
     }
 
     @Override
