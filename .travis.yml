@@ -1,0 +1,29 @@
+language: android
+
+jdk:
+ - openjdk8
+
+android:
+  components:
+    - tools
+    - build-tools-27.0.3
+    - android-27
+    - extra-google-m2repository
+    - extra-android-m2repository
+
+  licenses:
+    - '.+'
+
+script:
+    - ./gradlew clean assemble --stacktrace
+
+notifications:
+  email: false
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.m2
+    - $HOME/.gradle
+    - $ANDROID_HOME
