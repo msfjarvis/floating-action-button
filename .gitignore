@@ -9,3 +9,6 @@ gen
 
 .idea
 *.iml
+
+keystore.properties
+*.jks
