@@ -7,22 +7,23 @@ import android.view.TouchDelegate;
 import android.view.View;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TouchDelegateGroup extends TouchDelegate {
     private static final Rect USELESS_HACKY_RECT = new Rect();
-    private final ArrayList<TouchDelegate> mTouchDelegates = new ArrayList<TouchDelegate>();
+    private final List<TouchDelegate> mTouchDelegates = new ArrayList<>();
     private TouchDelegate mCurrentTouchDelegate;
     private boolean mEnabled;
 
-    public TouchDelegateGroup(View uselessHackyView) {
+    public TouchDelegateGroup(final View uselessHackyView) {
         super(USELESS_HACKY_RECT, uselessHackyView);
     }
 
-    public void addTouchDelegate(@NonNull TouchDelegate touchDelegate) {
+    public void addTouchDelegate(@NonNull final TouchDelegate touchDelegate) {
         mTouchDelegates.add(touchDelegate);
     }
 
-    public void removeTouchDelegate(TouchDelegate touchDelegate) {
+    public void removeTouchDelegate(final TouchDelegate touchDelegate) {
         mTouchDelegates.remove(touchDelegate);
         if (mCurrentTouchDelegate == touchDelegate) {
             mCurrentTouchDelegate = null;
@@ -35,7 +36,7 @@ public class TouchDelegateGroup extends TouchDelegate {
     }
 
     @Override
-    public boolean onTouchEvent(@NonNull MotionEvent event) {
+    public boolean onTouchEvent(@NonNull final MotionEvent event) {
         if (!mEnabled) return false;
 
         TouchDelegate delegate = null;
@@ -43,7 +44,7 @@ public class TouchDelegateGroup extends TouchDelegate {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 for (int i = 0; i < mTouchDelegates.size(); i++) {
-                    TouchDelegate touchDelegate = mTouchDelegates.get(i);
+                    final TouchDelegate touchDelegate = mTouchDelegates.get(i);
                     if (touchDelegate.onTouchEvent(event)) {
                         mCurrentTouchDelegate = touchDelegate;
                         return true;
@@ -65,7 +66,7 @@ public class TouchDelegateGroup extends TouchDelegate {
         return delegate != null && delegate.onTouchEvent(event);
     }
 
-    public void setEnabled(boolean enabled) {
+    public void setEnabled(final boolean enabled) {
         mEnabled = enabled;
     }
 }
