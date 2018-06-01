@@ -8,6 +8,7 @@ import android.animation.TimeInterpolator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
@@ -16,6 +17,7 @@ import android.os.Parcelable;
 import android.support.annotation.ColorRes;
 import android.support.annotation.Keep;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.view.ContextThemeWrapper;
@@ -89,11 +91,11 @@ public class FloatingActionsMenu extends ViewGroup {
 
         final TypedArray attr = context.obtainStyledAttributes(attributeSet, R.styleable.FloatingActionsMenu, 0, 0);
         mAddButtonPlusColor = attr.getColor(R.styleable.FloatingActionsMenu_fab_addButtonPlusIconColor,
-                getColor(android.R.color.white));
+                FloatingActionButton.getColorFromTheme(context, android.R.attr.colorBackground, android.R.color.white));
         mAddButtonColorNormal = attr.getColor(R.styleable.FloatingActionsMenu_fab_addButtonColorNormal,
-                getColor(R.color.color_accent));
+                FloatingActionButton.getColorFromTheme(context, android.R.attr.colorAccent, android.R.color.holo_blue_bright));
         mAddButtonColorPressed = attr.getColor(R.styleable.FloatingActionsMenu_fab_addButtonColorPressed,
-                getColor(R.color.color_accent_dark));
+                FloatingActionButton.darkenOrLightenColor(mAddButtonColorNormal)); //TODO(msf): use getColorForState on the accent color from theme instead to get darker states
         mAddButtonSize = attr.getInt(R.styleable.FloatingActionsMenu_fab_addButtonSize, FloatingActionButton.SIZE_NORMAL);
         mAddButtonStrokeVisible = attr.getBoolean(R.styleable.FloatingActionsMenu_fab_addButtonStrokeVisible, true);
         mExpandDirection = attr.getInt(R.styleable.FloatingActionsMenu_fab_expandDirection, EXPAND_UP);
@@ -169,10 +171,6 @@ public class FloatingActionsMenu extends ViewGroup {
         removeView(button);
         button.setTag(R.id.fab_label, null);
         mButtonsCount--;
-    }
-
-    private int getColor(@ColorRes final int id) {
-        return getResources().getColor(id);
     }
 
     @Override
