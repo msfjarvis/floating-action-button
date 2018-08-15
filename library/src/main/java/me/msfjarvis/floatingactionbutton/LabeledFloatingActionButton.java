@@ -10,11 +10,12 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.TextView;
+import androidx.annotation.ColorInt;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class LabeledFloatingActionButton extends FloatingActionButton {
 
-    private final String title;
+    private String title;
 
     public LabeledFloatingActionButton(final Context context) {
         this(context, null);
@@ -38,6 +39,14 @@ public class LabeledFloatingActionButton extends FloatingActionButton {
 
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(final String newTitle) {
+        title = newTitle;
+    }
+
+    public void setColorNormalResId(@ColorInt int colorNormalResId) {
+        this.setBackgroundColor(colorNormalResId);
     }
 
     @Override

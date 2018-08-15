@@ -50,7 +50,7 @@ ext {
 
 dependencies {
     implementation "androidx.appcompat:appcompat:$androidXVersion"
-    implementation "com.google.android.material:material:$androidXVersion"
+    api "com.google.android.material:material:$androidXVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 

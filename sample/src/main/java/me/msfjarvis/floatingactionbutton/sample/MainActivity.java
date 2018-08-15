@@ -1,4 +1,4 @@
-package com.getbase.floatingactionbutton.sample;
+package me.msfjarvis.floatingactionbutton.sample;
 
 import android.app.Activity;
 import android.graphics.drawable.ShapeDrawable;
@@ -7,8 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
-import com.getbase.floatingactionbutton.FloatingActionButton;
-import com.getbase.floatingactionbutton.FloatingActionsMenu;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import me.msfjarvis.floatingactionbutton.FloatingActionsMenu;
+import me.msfjarvis.floatingactionbutton.LabeledFloatingActionButton;
 
 public class MainActivity extends Activity {
     @Override
@@ -23,16 +24,14 @@ public class MainActivity extends Activity {
             }
         });
 
-        FloatingActionButton button = (FloatingActionButton) findViewById(R.id.setter);
+        LabeledFloatingActionButton button = findViewById(R.id.setter);
         button.setSize(FloatingActionButton.SIZE_MINI);
         button.setColorNormalResId(R.color.pink);
-        button.setColorPressedResId(R.color.pink_pressed);
-        button.setIcon(R.drawable.ic_fab_star);
-        button.setStrokeVisible(false);
+        button.setImageDrawable(getResources().getDrawable(R.drawable.ic_fab_star, getTheme()));
 
         final View actionB = findViewById(R.id.action_b);
 
-        FloatingActionButton actionC = new FloatingActionButton(getBaseContext());
+        LabeledFloatingActionButton actionC = new LabeledFloatingActionButton(getBaseContext());
         actionC.setTitle("Hide/Show Action above");
         actionC.setOnClickListener(new OnClickListener() {
             @Override
@@ -41,10 +40,10 @@ public class MainActivity extends Activity {
             }
         });
 
-        final FloatingActionsMenu menuMultipleActions = (FloatingActionsMenu) findViewById(R.id.multiple_actions);
+        final FloatingActionsMenu menuMultipleActions = findViewById(R.id.multiple_actions);
         menuMultipleActions.addButton(actionC);
 
-        final FloatingActionButton removeAction = (FloatingActionButton) findViewById(R.id.button_remove);
+        final LabeledFloatingActionButton removeAction = findViewById(R.id.button_remove);
         removeAction.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,9 +53,9 @@ public class MainActivity extends Activity {
 
         ShapeDrawable drawable = new ShapeDrawable(new OvalShape());
         drawable.getPaint().setColor(getResources().getColor(R.color.white));
-        ((FloatingActionButton) findViewById(R.id.setter_drawable)).setIconDrawable(drawable);
+        ((LabeledFloatingActionButton) findViewById(R.id.setter_drawable)).setImageDrawable(drawable);
 
-        final FloatingActionButton actionA = (FloatingActionButton) findViewById(R.id.action_a);
+        final LabeledFloatingActionButton actionA = findViewById(R.id.action_a);
         actionA.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,7 +66,7 @@ public class MainActivity extends Activity {
         // Test that FAMs containing FABs with visibility GONE do not cause crashes
         findViewById(R.id.button_gone).setVisibility(View.GONE);
 
-        final FloatingActionButton actionEnable = (FloatingActionButton) findViewById(R.id.action_enable);
+        final LabeledFloatingActionButton actionEnable = findViewById(R.id.action_enable);
         actionEnable.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,12 +74,12 @@ public class MainActivity extends Activity {
             }
         });
 
-        FloatingActionsMenu rightLabels = (FloatingActionsMenu) findViewById(R.id.right_labels);
-        FloatingActionButton addedOnce = new FloatingActionButton(this);
+        FloatingActionsMenu rightLabels = findViewById(R.id.right_labels);
+        LabeledFloatingActionButton addedOnce = new LabeledFloatingActionButton(this);
         addedOnce.setTitle("Added once");
         rightLabels.addButton(addedOnce);
 
-        FloatingActionButton addedTwice = new FloatingActionButton(this);
+        LabeledFloatingActionButton addedTwice = new LabeledFloatingActionButton(this);
         addedTwice.setTitle("Added twice");
         rightLabels.addButton(addedTwice);
         rightLabels.removeButton(addedTwice);

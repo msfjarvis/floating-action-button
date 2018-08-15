@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
 
     defaultConfig {
-        applicationId "com.getbase.floatingactionbutton.sample"
+        applicationId "me.msfjarvis.floatingactionbutton.sample"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
