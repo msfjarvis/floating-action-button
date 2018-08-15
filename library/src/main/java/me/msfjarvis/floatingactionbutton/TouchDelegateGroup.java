@@ -1,10 +1,10 @@
 package me.msfjarvis.floatingactionbutton;
 
 import android.graphics.Rect;
-import android.support.annotation.NonNull;
 import android.view.MotionEvent;
 import android.view.TouchDelegate;
 import android.view.View;
+import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.Collection;

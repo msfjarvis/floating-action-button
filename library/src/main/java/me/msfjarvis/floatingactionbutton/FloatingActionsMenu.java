@@ -14,11 +14,6 @@ import android.graphics.drawable.LayerDrawable;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.Keep;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.content.res.ResourcesCompat;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.view.ContextThemeWrapper;
 import android.view.TouchDelegate;
@@ -27,6 +22,11 @@ import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.widget.TextView;
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.core.content.res.ResourcesCompat;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 @SuppressWarnings("ReturnOfInnerClass")
 public class FloatingActionsMenu extends ViewGroup {

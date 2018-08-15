@@ -45,13 +45,12 @@ android {
     }
 }
 ext {
-    supportLibsVersion = '27.1.1'
+    androidXVersion = '1.0.0-rc01'
 }
 
 dependencies {
-    implementation "com.android.support:appcompat-v7:$supportLibsVersion"
-    implementation "com.android.support:design:$supportLibsVersion"
-    implementation "com.android.support:support-annotations:$supportLibsVersion"
+    implementation "androidx.appcompat:appcompat:$androidXVersion"
+    implementation "com.google.android.material:material:$androidXVersion"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 

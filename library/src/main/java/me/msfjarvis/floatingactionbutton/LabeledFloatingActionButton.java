@@ -8,9 +8,9 @@ package me.msfjarvis.floatingactionbutton;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.design.widget.FloatingActionButton;
 import android.util.AttributeSet;
 import android.widget.TextView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class LabeledFloatingActionButton extends FloatingActionButton {
 
