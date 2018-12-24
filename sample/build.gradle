@@ -17,8 +17,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
 }
 
 dependencies {
     implementation project(':library')
+    implementation("androidx.appcompat:appcompat:1.0.2")
+    implementation("androidx.vectordrawable:vectordrawable:1.0.1")
+    implementation("androidx.core:core:1.0.1")
 }
