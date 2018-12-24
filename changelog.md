@@ -1,6 +1,17 @@
 Change Log
 ==========
 
+Version 2.1.2 *(2018-12-24)*
+---------------------------
+
+* Add attribute fab_forceWhiteAddIcon to ignore DayNight
+
+Version 2.1 *(2018-12-24)*
+-------------------------
+
+* Migrate to AndroidX and Material Components
+* Render using support libraries rather than drawing things ourselves
+
 Version 1.10.1 *(2015-10-23)*
 ----------------------------
 
