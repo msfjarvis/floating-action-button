@@ -57,6 +57,7 @@ public class FloatingActionsMenu extends ViewGroup {
     private int mMaxButtonHeight;
     private int mLabelsStyle;
     private int mLabelsPosition;
+    private boolean mForceWhiteAddIcon;
     private int mButtonsCount;
     private TouchDelegateGroup mTouchDelegateGroup;
     private OnFloatingActionsMenuUpdateListener mListener;
@@ -88,6 +89,7 @@ public class FloatingActionsMenu extends ViewGroup {
         mExpandDirection = attr.getInt(R.styleable.FloatingActionsMenu_fab_expandDirection, EXPAND_UP);
         mLabelsStyle = attr.getResourceId(R.styleable.FloatingActionsMenu_fab_labelStyle, 0);
         mLabelsPosition = attr.getInt(R.styleable.FloatingActionsMenu_fab_labelsPosition, LABELS_ON_LEFT_SIDE);
+        mForceWhiteAddIcon = attr.getBoolean(R.styleable.FloatingActionsMenu_fab_forceWhiteAddIcon, false);
         attr.recycle();
 
         if (mLabelsStyle != 0 && expandsHorizontally()) {
@@ -106,7 +108,9 @@ public class FloatingActionsMenu extends ViewGroup {
     }
 
     private void createAddButton(final Context context) {
-        final RotatingDrawable rotatingDrawable = new RotatingDrawable(ResourcesCompat.getDrawable(context.getResources(), R.drawable.ic_action_add_inverse, context.getTheme()));
+        final RotatingDrawable rotatingDrawable = new RotatingDrawable(ResourcesCompat.getDrawable(context.getResources(),
+            mForceWhiteAddIcon ? R.drawable.ic_action_add_inverse : R.drawable.ic_action_add_white,
+            context.getTheme()));
         mRotatingDrawable = rotatingDrawable;
 
         final TimeInterpolator interpolator = new OvershootInterpolator();
