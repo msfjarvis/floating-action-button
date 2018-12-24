@@ -109,7 +109,7 @@ public class FloatingActionsMenu extends ViewGroup {
 
     private void createAddButton(final Context context) {
         final RotatingDrawable rotatingDrawable = new RotatingDrawable(ResourcesCompat.getDrawable(context.getResources(),
-            mForceWhiteAddIcon ? R.drawable.ic_action_add_inverse : R.drawable.ic_action_add_white,
+            mForceWhiteAddIcon ? R.drawable.ic_action_add_white : R.drawable.ic_action_add_inverse,
             context.getTheme()));
         mRotatingDrawable = rotatingDrawable;
 
