@@ -4,7 +4,6 @@ import android.graphics.Rect
 import android.view.MotionEvent
 import android.view.TouchDelegate
 import android.view.View
-
 import java.util.ArrayList
 
 class TouchDelegateGroup(uselessHackyView: View) : TouchDelegate(USELESS_HACKY_RECT, uselessHackyView) {
@@ -18,7 +17,7 @@ class TouchDelegateGroup(uselessHackyView: View) : TouchDelegate(USELESS_HACKY_R
 
     fun removeTouchDelegate(touchDelegate: TouchDelegate) {
         mTouchDelegates.remove(touchDelegate)
-        if (mCurrentTouchDelegate === touchDelegate) {
+        if (mCurrentTouchDelegate == touchDelegate) {
             mCurrentTouchDelegate = null
         }
     }
@@ -35,10 +34,12 @@ class TouchDelegateGroup(uselessHackyView: View) : TouchDelegate(USELESS_HACKY_R
         var delegate: TouchDelegate? = null
 
         when (event.action) {
-            MotionEvent.ACTION_DOWN -> for (touchDelegate in mTouchDelegates) {
-                if (touchDelegate.onTouchEvent(event)) {
-                    mCurrentTouchDelegate = touchDelegate
-                    return true
+            MotionEvent.ACTION_DOWN -> {
+                for (touchDelegate in mTouchDelegates) {
+                    if (touchDelegate.onTouchEvent(event)) {
+                        mCurrentTouchDelegate = touchDelegate
+                        return true
+                    }
                 }
             }
 

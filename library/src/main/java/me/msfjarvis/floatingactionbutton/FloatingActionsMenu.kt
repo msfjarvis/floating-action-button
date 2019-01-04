@@ -1,3 +1,4 @@
+@file:Suppress("Unused", "WeakerAccess")
 package me.msfjarvis.floatingactionbutton
 
 import android.animation.Animator
@@ -377,9 +378,7 @@ class FloatingActionsMenu : ViewGroup {
             mCollapseAnimation.start()
             mExpandAnimation.cancel()
 
-            if (mListener != null) {
-                mListener!!.onMenuCollapsed()
-            }
+            mListener?.onMenuCollapsed()
         }
     }
 
@@ -398,9 +397,7 @@ class FloatingActionsMenu : ViewGroup {
             mCollapseAnimation.cancel()
             mExpandAnimation.start()
 
-            if (mListener != null) {
-                mListener!!.onMenuExpanded()
-            }
+            mListener?.onMenuExpanded()
         }
     }
 

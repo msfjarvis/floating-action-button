@@ -25,7 +25,6 @@ constructor(
         get() = getTag(R.id.fab_label) as TextView
 
     init {
-
         val attr = context.obtainStyledAttributes(attrs, R.styleable.LabeledFloatingActionButton, 0, 0)
         title = attr.getString(R.styleable.LabeledFloatingActionButton_fab_title)
         attr.recycle()
@@ -36,8 +35,7 @@ constructor(
     }
 
     override fun setVisibility(visibility: Int) {
-        val label = labelView
-        label?.visibility = visibility
+        labelView?.visibility = visibility
 
         super.setVisibility(visibility)
     }
