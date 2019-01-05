@@ -33,8 +33,8 @@ class FloatingActionsMenu : ViewGroup {
     private var mLabelsVerticalOffset: Int = 0
     var isExpanded: Boolean = false
         private set
-    private val mExpandAnimation = AnimatorSet().setDuration(ANIMATION_DURATION.toLong())
-    private val mCollapseAnimation = AnimatorSet().setDuration(ANIMATION_DURATION.toLong())
+    private val mExpandAnimation = AnimatorSet().setDuration(ANIMATION_DURATION)
+    private val mCollapseAnimation = AnimatorSet().setDuration(ANIMATION_DURATION)
     private var mAddButton: FloatingActionButton? = null
     private var mRotatingDrawable: RotatingDrawable? = null
     private var mMaxButtonWidth: Int = 0
@@ -553,7 +553,7 @@ class FloatingActionsMenu : ViewGroup {
         const val LABELS_ON_LEFT_SIDE = 0
         const val LABELS_ON_RIGHT_SIDE = 1
 
-        private const val ANIMATION_DURATION = 300
+        private const val ANIMATION_DURATION = 300L
         private const val COLLAPSED_PLUS_ROTATION = 0f
         private const val EXPANDED_PLUS_ROTATION = 90f + 45f
         private val EXPAND_INTERPOLATOR = OvershootInterpolator()
