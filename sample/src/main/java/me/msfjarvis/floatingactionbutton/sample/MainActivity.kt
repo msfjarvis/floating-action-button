@@ -19,7 +19,7 @@ class MainActivity : Activity() {
 
         val button = findViewById<LabeledFloatingActionButton>(R.id.setter)
         button.size = FloatingActionButton.SIZE_MINI
-        button.setColorNormalResId(R.color.pink)
+        button.colorNormalResId = R.color.pink
         button.setImageDrawable(resources.getDrawable(R.drawable.ic_fab_star, theme))
 
         val actionB = findViewById<View>(R.id.action_b)

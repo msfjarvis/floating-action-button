@@ -24,14 +24,15 @@ constructor(
     val labelView: TextView?
         get() = getTag(R.id.fab_label) as TextView
 
+    var colorNormalResId: Int = 0
+    set(resId) {
+        setBackgroundColor(resId)
+    }
+
     init {
         val attr = context.obtainStyledAttributes(attrs, R.styleable.LabeledFloatingActionButton, 0, 0)
         title = attr.getString(R.styleable.LabeledFloatingActionButton_fab_title)
         attr.recycle()
-    }
-
-    fun setColorNormalResId(@ColorInt colorNormalResId: Int) {
-        this.setBackgroundColor(colorNormalResId)
     }
 
     override fun setVisibility(visibility: Int) {
