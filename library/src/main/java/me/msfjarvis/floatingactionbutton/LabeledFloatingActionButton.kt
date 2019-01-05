@@ -9,14 +9,13 @@ package me.msfjarvis.floatingactionbutton
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.TextView
-import androidx.annotation.ColorInt
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class LabeledFloatingActionButton @JvmOverloads
 constructor(
-        context: Context,
-        attrs: AttributeSet? = null,
-        defStyle: Int = 0
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyle: Int = 0
 ) : FloatingActionButton(context, attrs, defStyle) {
 
     var title: String? = null
@@ -40,5 +39,4 @@ constructor(
 
         super.setVisibility(visibility)
     }
-
 }
