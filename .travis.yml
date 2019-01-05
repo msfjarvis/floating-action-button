@@ -14,7 +14,7 @@ android:
     - '.+'
 
 script:
-    - ./gradlew clean assemble --stacktrace
+    - ./gradlew clean assemble check
 
 notifications:
   email: false
