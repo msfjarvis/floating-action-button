@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+Version 3.0.0 (Under development)
+---------------------------------
+* Rewrite entire library in Kotlin. Java interop is a granted, but not
+  supported. YMMV.xy
+
 Version 2.1.2 *(2018-12-24)*
 ---------------------------
 
