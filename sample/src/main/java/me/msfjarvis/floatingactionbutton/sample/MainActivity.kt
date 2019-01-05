@@ -3,6 +3,7 @@ package me.msfjarvis.floatingactionbutton.sample
 import android.app.Activity
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.OvalShape
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -35,7 +36,8 @@ class MainActivity : Activity() {
         removeAction.setOnClickListener { (findViewById<View>(R.id.multiple_actions_down) as FloatingActionsMenu).removeButton(removeAction) }
 
         val drawable = ShapeDrawable(OvalShape())
-        drawable.paint.color = resources.getColor(R.color.white, theme)
+        drawable.paint.color = if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) resources.getColor(R.color.white, theme) else resources.getColor(R.color.white)
+
         (findViewById<View>(R.id.setter_drawable) as LabeledFloatingActionButton).setImageDrawable(drawable)
 
         val actionA = findViewById<LabeledFloatingActionButton>(R.id.action_a)
