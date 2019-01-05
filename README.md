@@ -12,7 +12,7 @@ Features
 
   ![Demo](screenshots/custom.png)
 
-* Convenience `AddFloatingActionButton` class with plus icon drawn in code.
+* Convenience `LabeledFloatingActionButton` with customizable icon and background.
 * `FloatingActionsMenu` which can be expanded/collapsed to reveal multiple actions.
 
   ![Demo](screenshots/menu.gif)
@@ -23,11 +23,21 @@ Features
 
 Usage
 =====
+Configure the JitPack repository:
+
+```groovy
+repositories {
+    maven {
+        url "https://jitpack.io"
+     }
+}
+```
+
 Just add the dependency to your `build.gradle`:
 
 ```groovy
 dependencies {
-    compile 'com.getbase:floatingactionbutton:1.10.1'
+    implementation("com.github.MSF-Jarvis:floating-action-button:2.1.2")
 }
 ```
 
@@ -39,9 +49,7 @@ The API is **extremely** limited at the moment. It solves few select use cases i
 
 Unlike some other FloatingActionButton libraries this library doesn't implement "quick return" pattern, i.e. hiding the button on scrolling down and showing it on scrolling up. That's intentional, I think that should be responsibility of another component, not the button itself.
 
-This library is `minSdkVersion=14` and if that changes, the version number will be increased, not decreased. It means that Honeycomb, Gingerbread or - gods forbid - Froyo, won't ever be supported. I won't even consider merging pull requests fully implementing support for older versions. We need to move on as Android community and focus on delivering value for 95% of users of modern Android OS instead of jumping through burning hoops to support ancient devices with ancient OS.
-
-If you **really** require support for older Android versions, [str4d](https://github.com/str4d) maintains [a version of this library with `minSdkVersion=4`](https://github.com/str4d/android-floating-action-button).
+This library is `minSdkVersion=21` and if that changes, the version number will be increased, not decreased. It means that Honeycomb, Gingerbread or - gods forbid - Froyo, won't ever be supported. I won't even consider merging pull requests fully implementing support for older versions. We need to move on as Android community and focus on delivering value for 95% of users of modern Android OS instead of jumping through burning hoops to support ancient devices with ancient OS.
 
 Credits
 =======
@@ -51,6 +59,7 @@ License
 =======
 
     Copyright (C) 2014 Jerzy Chalupski
+    Copyright (C) 2018-2019 Harsh 'MSF-Jarvis' Shandilya
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
