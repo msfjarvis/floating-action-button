@@ -19,6 +19,10 @@ constructor(
 ) : FloatingActionButton(context, attrs, defStyle) {
 
     var title: String? = null
+        set(newTitle) {
+            field = newTitle
+            labelView?.text = newTitle
+        }
 
     val labelView: TextView?
         get() = getTag(R.id.fab_label) as TextView
