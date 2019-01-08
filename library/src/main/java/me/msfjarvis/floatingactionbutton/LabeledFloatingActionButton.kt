@@ -25,7 +25,7 @@ constructor(
         }
 
     val labelView: TextView?
-        get() = getTag(R.id.fab_label) as TextView
+        get() = getTag(R.id.fab_label) as? TextView
 
     var colorNormalResId: Int = 0
     set(resId) {
