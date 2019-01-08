@@ -1,6 +1,6 @@
 FloatingActionButton
 ====================
-Yet another library for drawing [Material Design promoted actions](http://www.google.com/design/spec/patterns/promoted-actions.html).
+Yet another library for drawing [Material Design promoted actions](https://material.io/design/components/buttons-floating-action-button.html)
 
 Features
 ========
