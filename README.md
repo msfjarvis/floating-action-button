@@ -1,4 +1,4 @@
-FloatingActionButton
+FloatingActionButton [![](https://jitpack.io/v/MSF-Jarvis/floating-action-button.svg)](https://jitpack.io/#MSF-Jarvis/floating-action-button)
 ====================
 Yet another library for drawing [Material Design promoted actions](https://material.io/design/components/buttons-floating-action-button.html)
 
