@@ -6,6 +6,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("com.android.library")
     id("kotlin-android")
+    id("com.github.dcendents.android-maven")
 }
 
 // Create a variable called keystorePropertiesFile, and initialize it to your
