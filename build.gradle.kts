@@ -4,8 +4,8 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:3.2.1")
-        classpath(kotlin("gradle-plugin", "1.3.11"))
+        classpath("com.android.tools.build:gradle:3.3.1")
+        classpath(kotlin("gradle-plugin", "1.3.21"))
         classpath("com.github.dcendents:android-maven-gradle-plugin:2.1")
     }
 }
