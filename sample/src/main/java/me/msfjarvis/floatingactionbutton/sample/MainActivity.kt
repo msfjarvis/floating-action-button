@@ -36,7 +36,10 @@ class MainActivity : Activity() {
         removeAction.setOnClickListener { (findViewById<View>(R.id.multiple_actions_down) as FloatingActionsMenu).removeButton(removeAction) }
 
         val drawable = ShapeDrawable(OvalShape())
-        drawable.paint.color = if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) resources.getColor(R.color.white, theme) else resources.getColor(R.color.white)
+        drawable.paint.color = if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M)
+            resources.getColor(R.color.white, theme)
+        else
+            resources.getColor(R.color.white)
 
         (findViewById<View>(R.id.setter_drawable) as LabeledFloatingActionButton).setImageDrawable(drawable)
 

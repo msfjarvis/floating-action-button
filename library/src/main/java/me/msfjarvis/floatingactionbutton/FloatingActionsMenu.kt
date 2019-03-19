@@ -353,7 +353,11 @@ class FloatingActionsMenu : ViewGroup {
                 val title = button.title
 
                 val label = AppCompatTextView(context)
-                label.setTextAppearance(context, mLabelsStyle)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    label.setTextAppearance(mLabelsStyle)
+                } else {
+                    label.setTextAppearance(context, mLabelsStyle)
+                }
                 label.text = title
                 addView(label)
 
