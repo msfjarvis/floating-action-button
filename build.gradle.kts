@@ -4,8 +4,8 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:3.4.1")
-        classpath(kotlin("gradle-plugin", "1.3.31"))
+        classpath("com.android.tools.build:gradle:3.5.0")
+        classpath(kotlin("gradle-plugin", "1.3.50"))
         classpath("com.github.dcendents:android-maven-gradle-plugin:2.1")
     }
 }
@@ -19,7 +19,7 @@ allprojects {
 
 tasks {
     named<Wrapper>("wrapper") {
-        gradleVersion = "5.4.1"
+        gradleVersion = "5.6.1"
         distributionType = Wrapper.DistributionType.ALL
     }
 
