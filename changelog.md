@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+Unreleased
+---------------------------------
+* Compile against Kotlin 1.3.50
+
 Version 3.0.0 *(2019-01-08)*
 ---------------------------------
 * Rewrite entire library in Kotlin. Java interop is a granted, but not
