@@ -28,7 +28,4 @@ android {
 
 dependencies {
     implementation(project(":library"))
-    implementation("androidx.appcompat:appcompat:1.0.2")
-    implementation("com.google.android.material:material:1.0.0")
-    implementation(embeddedKotlin("stdlib-jdk8"))
 }

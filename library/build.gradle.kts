@@ -43,9 +43,9 @@ android {
 }
 
 dependencies {
-    implementation("androidx.appcompat:appcompat:1.0.2")
-    implementation("com.google.android.material:material:1.0.0")
-    implementation(embeddedKotlin("stdlib-jdk8"))
+    api("androidx.appcompat:appcompat:1.0.2")
+    api("com.google.android.material:material:1.0.0")
+    api(embeddedKotlin("stdlib-jdk8"))
 }
 
 tasks.withType<JavaCompile> {
