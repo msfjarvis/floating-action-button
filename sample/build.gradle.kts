@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion(28)
+    compileSdkVersion(29)
     defaultConfig {
         applicationId = "me.msfjarvis.floatingactionbutton.sample"
         minSdkVersion(21)
-        targetSdkVersion(28)
+        targetSdkVersion(29)
         versionCode = 1
         versionName = "1.0"
     }
@@ -31,7 +31,4 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.0.2")
     implementation("com.google.android.material:material:1.0.0")
     implementation(embeddedKotlin("stdlib-jdk8"))
-}
-repositories {
-    mavenCentral()
 }

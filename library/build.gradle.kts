@@ -13,10 +13,10 @@ plugins {
 val keystorePropertiesFile = rootProject.file("keystore.properties")
 
 android {
-    compileSdkVersion(28)
+    compileSdkVersion(29)
     defaultConfig {
         minSdkVersion(21)
-        targetSdkVersion(28)
+        targetSdkVersion(29)
         versionCode = 300
         versionName = "3.0.0"
         consumerProguardFiles("consumer-proguard-rules.pro")

@@ -19,11 +19,7 @@ allprojects {
 
 tasks {
     named<Wrapper>("wrapper") {
-        gradleVersion = "5.6.1"
+        gradleVersion = "5.6.2"
         distributionType = Wrapper.DistributionType.ALL
-    }
-
-    register("clean", Delete::class) {
-        delete(rootProject.buildDir)
     }
 }
