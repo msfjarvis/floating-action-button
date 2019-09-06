@@ -4,6 +4,8 @@ Change Log
 Unreleased
 ---------------------------------
 * Compile against Kotlin 1.3.50
+* Compile against SDK 29
+* Update library dependencies
 
 Version 3.0.0 *(2019-01-08)*
 ---------------------------------
