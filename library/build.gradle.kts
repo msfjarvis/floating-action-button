@@ -17,8 +17,8 @@ android {
     defaultConfig {
         minSdkVersion(21)
         targetSdkVersion(29)
-        versionCode = 300
-        versionName = "3.0.0"
+        versionCode = 310
+        versionName = "3.1.0"
         consumerProguardFiles("consumer-proguard-rules.pro")
     }
     compileOptions {
