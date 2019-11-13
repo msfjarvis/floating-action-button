@@ -1,4 +1,4 @@
-FloatingActionButton [![](https://jitpack.io/v/MSF-Jarvis/floating-action-button.svg)](https://jitpack.io/#MSF-Jarvis/floating-action-button)
+FloatingActionButton [![](https://jitpack.io/v/msfjarvis/floating-action-button.svg)](https://jitpack.io/#msfjarvis/floating-action-button)
 ====================
 Yet another library for drawing [Material Design promoted actions](https://material.io/design/components/buttons-floating-action-button.html)
 
@@ -37,7 +37,7 @@ Just add the dependency to your `build.gradle`:
 
 ```groovy
 dependencies {
-    implementation("com.github.MSF-Jarvis:floating-action-button:2.1.2")
+    implementation("com.github.msfjarvis:floating-action-button:3.1.0")
 }
 ```
 
@@ -59,7 +59,7 @@ License
 =======
 
     Copyright (C) 2014 Jerzy Chalupski
-    Copyright (C) 2018-2019 Harsh 'MSF-Jarvis' Shandilya
+    Copyright (C) 2018-2019 Harsh 'msfjarvis' Shandilya
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
