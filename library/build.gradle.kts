@@ -11,7 +11,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("com.android.library")
     kotlin("android")
-    id("com.github.dcendents.android-maven")
+    id("maven-publish")
 }
 
 // Create a variable called keystorePropertiesFile, and initialize it to your
@@ -61,4 +61,22 @@ tasks.withType<JavaCompile> {
 
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/msfjarvis/floating-action-button")
+            credentials {
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_REPOSITORY").split("/")[0]
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+    publications {
+        register("gpr") {
+            from(components["java"])
+        }
+    }
 }
