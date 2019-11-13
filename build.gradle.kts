@@ -1,3 +1,9 @@
+/*
+ * Copyright © 2014 Jerzy Chalupski
+ * Copyright © 2018 Jason A. Donenfeld <Jason@zx2c4.com>
+ * Copyright © 2018-2019 Harsh Shandilya <msfjarvis@gmail.com> All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
+ */
 buildscript {
     repositories {
         google()
@@ -22,3 +28,5 @@ tasks {
         distributionType = Wrapper.DistributionType.ALL
     }
 }
+
+configureSpotless()
