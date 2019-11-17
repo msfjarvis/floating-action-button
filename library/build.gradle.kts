@@ -49,8 +49,8 @@ android {
 }
 
 dependencies {
-    api("androidx.appcompat:appcompat:1.0.2")
-    api("com.google.android.material:material:1.0.0")
+    api("androidx.appcompat:appcompat:1.1.0")
+    api("com.google.android.material:material:1.2.0-alpha01")
     api(embeddedKotlin("stdlib-jdk8"))
 }
 
