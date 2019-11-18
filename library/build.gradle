@@ -1,0 +1,72 @@
+/*
+ * Copyright © 2014 Jerzy Chalupski
+ * Copyright © 2018 Jason A. Donenfeld <Jason@zx2c4.com>
+ * Copyright © 2018-2019 Harsh Shandilya <msfjarvis@gmail.com> All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+plugins {
+    id 'kotlin-android'
+    id 'maven-publish'
+}
+
+final def keystorePropertiesFile = rootProject.file 'keystore.properties'
+
+android {
+    defaultConfig {
+        consumerProguardFiles 'consumer-proguard-rules.pro'
+    }
+    if (keystorePropertiesFile.exists()) {
+        final def keystoreProperties = new Properties()
+        keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+        signingConfigs {
+            release {
+                keyAlias = keystoreProperties['keyAlias']
+                keyPassword = keystoreProperties['keyPassword']
+                storeFile = rootProject.file keystoreProperties['storeFile']
+                storePassword = keystoreProperties['storePassword']
+            }
+        }
+        buildTypes.release.signingConfig = signingConfigs.release
+    }
+    lintOptions {
+        abortOnError = false
+    }
+}
+
+dependencies {
+    api 'androidx.appcompat:appcompat:' + versions.appcompat
+    api 'com.google.android.material:material:' + versions.material
+    api 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:' + versions.kotlin
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs << '-Xlint:unchecked'
+    options.deprecation = true
+}
+tasks.withType(KotlinCompile) {
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+/*
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/msfjarvis/floating-action-button")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("PASSWORD")
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
+*/
