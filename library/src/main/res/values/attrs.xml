@@ -17,5 +17,6 @@
         </attr>
         <attr name="fab_forceWhiteAddIcon" format="boolean"/>
         <attr name="fab_drawable" format="reference"/>
+        <attr name="fab_disableRotationOnExpand" format="boolean"/>
     </declare-styleable>
 </resources>

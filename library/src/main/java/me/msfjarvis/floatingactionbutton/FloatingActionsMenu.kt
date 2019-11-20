@@ -50,6 +50,7 @@ class FloatingActionsMenu : ViewGroup {
     private var mForceWhiteAddIcon: Boolean = false
     private var mButtonsCount: Int = 0
     private var mCustomDrawable: Int = 0
+    private var mDisableRotationOnExpand: Boolean = false
     private var mTouchDelegateGroup: TouchDelegateGroup? = null
     private var mListener: OnFloatingActionsMenuUpdateListener? = null
     private val touchArea = Rect(0, 0, 0, 0)
@@ -77,6 +78,7 @@ class FloatingActionsMenu : ViewGroup {
         mLabelsPosition = attr.getInt(R.styleable.FloatingActionsMenu_fab_labelsPosition, LABELS_ON_LEFT_SIDE)
         mForceWhiteAddIcon = attr.getBoolean(R.styleable.FloatingActionsMenu_fab_forceWhiteAddIcon, false)
         mCustomDrawable = attr.getResourceId(R.styleable.FloatingActionsMenu_fab_drawable, if (mForceWhiteAddIcon) R.drawable.ic_action_add_white else R.drawable.ic_action_add_inverse)
+        mDisableRotationOnExpand = attr.getBoolean(R.styleable.FloatingActionsMenu_fab_disableRotationOnExpand, false)
         attr.recycle()
 
         if (mLabelsStyle != 0 && expandsHorizontally()) {
@@ -95,25 +97,34 @@ class FloatingActionsMenu : ViewGroup {
     }
 
     private fun createAddButton(context: Context) {
-        val rotatingDrawable = RotatingDrawable(ResourcesCompat.getDrawable(context.resources, mCustomDrawable, context.theme) as Drawable)
-        mRotatingDrawable = rotatingDrawable
+        val addIconDrawable = ResourcesCompat.getDrawable(context.resources, mCustomDrawable, context.theme) as Drawable
+        mAddButton = if (mDisableRotationOnExpand) {
+            FloatingActionButton(context).apply {
+                setImageDrawable(addIconDrawable)
+                id = R.id.fab_expand_menu_button
+                setOnClickListener { toggle() }
+            }
+        } else {
+            val rotatingDrawable = RotatingDrawable(addIconDrawable)
+            mRotatingDrawable = rotatingDrawable
 
-        val interpolator = OvershootInterpolator()
+            val interpolator = OvershootInterpolator()
 
-        val collapseAnimator = ObjectAnimator.ofFloat(rotatingDrawable, "rotation", EXPANDED_PLUS_ROTATION, COLLAPSED_PLUS_ROTATION)
-        val expandAnimator = ObjectAnimator.ofFloat(rotatingDrawable, "rotation", COLLAPSED_PLUS_ROTATION, EXPANDED_PLUS_ROTATION)
+            val collapseAnimator = ObjectAnimator.ofFloat(rotatingDrawable, "rotation", EXPANDED_PLUS_ROTATION, COLLAPSED_PLUS_ROTATION)
+            val expandAnimator = ObjectAnimator.ofFloat(rotatingDrawable, "rotation", COLLAPSED_PLUS_ROTATION, EXPANDED_PLUS_ROTATION)
 
-        collapseAnimator.interpolator = interpolator
-        expandAnimator.interpolator = interpolator
+            collapseAnimator.interpolator = interpolator
+            expandAnimator.interpolator = interpolator
 
-        mExpandAnimation.play(expandAnimator)
-        mCollapseAnimation.play(collapseAnimator)
+            mExpandAnimation.play(expandAnimator)
+            mCollapseAnimation.play(collapseAnimator)
 
-        mAddButton = FloatingActionButton(context)
-        mAddButton!!.setImageDrawable(rotatingDrawable)
-        mAddButton!!.id = R.id.fab_expand_menu_button
-        mAddButton!!.setOnClickListener { toggle() }
-
+            FloatingActionButton(context).apply {
+                setImageDrawable(rotatingDrawable)
+                id = R.id.fab_expand_menu_button
+                setOnClickListener { toggle() }
+            }
+        }
         addView(mAddButton, super.generateDefaultLayoutParams())
         mButtonsCount++
     }
