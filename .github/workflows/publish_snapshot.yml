@@ -1,8 +1,5 @@
-name: "Release builds"
-on:
-  push:
-    tags:
-      - 3.*
+name: "Release per-commit snapshots"
+on: push
 
 jobs:
   setup-android:
@@ -15,4 +12,3 @@ jobs:
       env:
         USERNAME: msfjarvis
         PASSWORD: ${{ secrets.PACKAGES_TOKEN }}
-        RELEASE: true

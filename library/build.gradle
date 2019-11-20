@@ -25,6 +25,7 @@ final def keystorePropertiesFile = rootProject.file 'keystore.properties'
 android {
     defaultConfig {
         consumerProguardFiles 'consumer-proguard-rules.pro'
+        versionName "$VERSION_NAME"
     }
     if (keystorePropertiesFile.exists()) {
         final def keystoreProperties = new Properties()
@@ -80,9 +81,9 @@ publishing {
     publications {
         gpr(MavenPublication) {
             from components.android
-            groupId 'msfjarvis'
+            groupId "$GROUP_ID"
             artifactId 'floating-action-button'
-            version "${gitHash()}-SNAPSHOT"
+            version System.env['RELEASE'] != null ? "$VERSION_NAME" : "${gitHash()}-SNAPSHOT"
         }
     }
 }

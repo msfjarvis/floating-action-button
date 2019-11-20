@@ -11,6 +11,8 @@ plugins {
 android {
     defaultConfig {
         applicationId = 'me.msfjarvis.floatingactionbutton.sample'
+        versionCode 1
+        versionName '1.0.0'
     }
     buildTypes {
         release {
