@@ -16,5 +16,6 @@
             <enum name="right" value="3"/>
         </attr>
         <attr name="fab_forceWhiteAddIcon" format="boolean"/>
+        <attr name="fab_drawable" format="reference"/>
     </declare-styleable>
 </resources>

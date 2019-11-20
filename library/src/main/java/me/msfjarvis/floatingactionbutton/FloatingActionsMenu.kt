@@ -49,6 +49,7 @@ class FloatingActionsMenu : ViewGroup {
     private var mLabelsPosition: Int = 0
     private var mForceWhiteAddIcon: Boolean = false
     private var mButtonsCount: Int = 0
+    private var mCustomDrawable: Int = 0
     private var mTouchDelegateGroup: TouchDelegateGroup? = null
     private var mListener: OnFloatingActionsMenuUpdateListener? = null
     private val touchArea = Rect(0, 0, 0, 0)
@@ -75,6 +76,7 @@ class FloatingActionsMenu : ViewGroup {
         mLabelsStyle = attr.getResourceId(R.styleable.FloatingActionsMenu_fab_labelStyle, 0)
         mLabelsPosition = attr.getInt(R.styleable.FloatingActionsMenu_fab_labelsPosition, LABELS_ON_LEFT_SIDE)
         mForceWhiteAddIcon = attr.getBoolean(R.styleable.FloatingActionsMenu_fab_forceWhiteAddIcon, false)
+        mCustomDrawable = attr.getResourceId(R.styleable.FloatingActionsMenu_fab_drawable, if (mForceWhiteAddIcon) R.drawable.ic_action_add_white else R.drawable.ic_action_add_inverse)
         attr.recycle()
 
         if (mLabelsStyle != 0 && expandsHorizontally()) {
@@ -93,9 +95,7 @@ class FloatingActionsMenu : ViewGroup {
     }
 
     private fun createAddButton(context: Context) {
-        val rotatingDrawable = RotatingDrawable(ResourcesCompat.getDrawable(context.resources,
-                if (mForceWhiteAddIcon) R.drawable.ic_action_add_white else R.drawable.ic_action_add_inverse,
-                context.theme) as Drawable)
+        val rotatingDrawable = RotatingDrawable(ResourcesCompat.getDrawable(context.resources, mCustomDrawable, context.theme) as Drawable)
         mRotatingDrawable = rotatingDrawable
 
         val interpolator = OvershootInterpolator()
