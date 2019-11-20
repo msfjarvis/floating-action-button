@@ -4,8 +4,6 @@
  * Copyright © 2018-2019 Harsh Shandilya <msfjarvis@gmail.com> All Rights Reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     id 'kotlin-android'
     id 'digital.wup.android-maven-publish' version '3.6.2'
@@ -54,17 +52,6 @@ dependencies {
 task androidSourceJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier 'sources'
-}
-
-tasks.withType(JavaCompile) {
-    options.compilerArgs << '-Xlint:unchecked'
-    options.deprecation = true
-}
-
-tasks.withType(KotlinCompile) {
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
 }
 
 publishing {
