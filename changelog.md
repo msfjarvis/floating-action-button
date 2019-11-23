@@ -3,6 +3,9 @@ Change Log
 
 Unreleased
 ---------------------------------
+
+Version 3.2.0 *(2019-11-24)*
+---------------------------------
 * Added `fab_drawable` attribute to `FloatingActionsMenu` to override drawable used for expandable menu
 * Added `fab_disableRotationOnExpand` attribute to `FloatingActionsMenu` to enable/disable the rotation on expand/collapse.
 * Update to Kotlin 1.3.60
