@@ -3,6 +3,7 @@ Change Log
 
 Unreleased
 ---------------------------------
+* Disable `BuildConfig` generation.
 
 Version 3.2.0 *(2019-11-24)*
 ---------------------------------
