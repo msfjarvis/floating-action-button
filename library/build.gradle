@@ -6,7 +6,7 @@
  */
 plugins {
     id 'kotlin-android'
-    id 'digital.wup.android-maven-publish' version '3.6.2'
+    id 'digital.wup.android-maven-publish' version '3.6.3'
 }
 
 final def gitHash = { ->
