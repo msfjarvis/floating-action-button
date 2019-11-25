@@ -12,3 +12,5 @@ gen
 
 keystore.properties
 *.jks
+
+/captures/
