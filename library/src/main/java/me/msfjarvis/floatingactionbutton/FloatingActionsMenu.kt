@@ -31,6 +31,8 @@ import androidx.annotation.Keep
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlin.math.max
+import kotlin.math.min
 
 class FloatingActionsMenu : ViewGroup {
     private var mExpandDirection: Int = 0
@@ -164,19 +166,19 @@ class FloatingActionsMenu : ViewGroup {
 
             when (mExpandDirection) {
                 EXPAND_UP, EXPAND_DOWN -> {
-                    mMaxButtonWidth = Math.max(mMaxButtonWidth, child.measuredWidth)
+                    mMaxButtonWidth = max(mMaxButtonWidth, child.measuredWidth)
                     height += child.measuredHeight
                 }
                 EXPAND_LEFT, EXPAND_RIGHT -> {
                     width += child.measuredWidth
-                    mMaxButtonHeight = Math.max(mMaxButtonHeight, child.measuredHeight)
+                    mMaxButtonHeight = max(mMaxButtonHeight, child.measuredHeight)
                 }
             }
 
             if (!expandsHorizontally()) {
                 val label = child.getTag(R.id.fab_label) as TextView?
                 if (label != null) {
-                    maxLabelWidth = Math.max(maxLabelWidth, label.measuredWidth)
+                    maxLabelWidth = max(maxLabelWidth, label.measuredWidth)
                 }
             }
         }
@@ -271,9 +273,9 @@ class FloatingActionsMenu : ViewGroup {
 
                         label.layout(labelLeft, labelTop, labelRight, labelTop + label.measuredHeight)
 
-                        touchArea.set(Math.min(childX, labelLeft),
+                        touchArea.set(min(childX, labelLeft),
                                 childY - mButtonSpacing / 2,
-                                Math.max(childX + child.measuredWidth, labelRight),
+                                max(childX + child.measuredWidth, labelRight),
                                 childY + child.measuredHeight + mButtonSpacing / 2)
                         mTouchDelegateGroup!!.addTouchDelegate(TouchDelegate(Rect(touchArea), child))
 
